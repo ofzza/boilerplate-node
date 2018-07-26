@@ -97,3 +97,13 @@ or will be executed on code change if running a watcher task:
 ```
 > gulp watch
 ```
+
+## Server
+
+To quickly serve up the contents of the `./dist` directory, you can start up an HTTP server by running
+
+```
+> gulp server
+```
+
+... and opening `http://localhost:3000` in your browser.

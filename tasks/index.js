@@ -3,10 +3,11 @@
 // =====================================================================================================================
 
 // Require dependencies
-const fs    = require('fs'),
-      path  = require('path'),
-      _     = require('lodash'),
-      gulp  = require('gulp');
+const fs      = require('fs'),
+      path    = require('path'),
+      _       = require('lodash'),
+      gulp    = require('gulp'),
+      connect = require('gulp-connect');
 
 /**
  * Defines available Gulp tasks
@@ -177,5 +178,15 @@ module.exports = () => {
   if (tasks.test.length || tasks.build.length) {
     gulp.task('default', gulp.series([...tasks.test, ...tasks.build]));
   }
+
+  // HTTP server task
+  gulp.task('server', () => {
+    return connect.server({
+      port: 3000,
+      host: 'localhost',
+      root: './dist',
+      debug: true
+    });
+  });
 
 };
